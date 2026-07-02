@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public InputAction moveAction;
     public Vector2 moveInput;
     public float speed = 10.0f;
+    public float xRange = 10.0f;
 
     void Start()
     {
@@ -17,13 +18,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < -10.0f)
+        if (transform.position.x < -xRange)
         {
-            transform.position = new Vector3(-10.0f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
-        else if (transform.position.x > 10.0f)
+        else if (transform.position.x > xRange)
         {
-            transform.position = new Vector3(10.0f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
         moveInput = moveAction.ReadValue<Vector2>();
