@@ -7,10 +7,13 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveInput;
     public float speed = 10.0f;
     public float xRange = 10.0f;
+    public GameObject projectilePrefab;
+    public InputAction fireAction;
 
     void Start()
     {
         moveAction.Enable();
+        fireAction.Enable();
     }
 
     void Update()
@@ -27,5 +30,12 @@ public class PlayerController : MonoBehaviour
 
         moveInput = moveAction.ReadValue<Vector2>();
         transform.Translate(Vector3.right * moveInput.x * Time.deltaTime * speed);
+
+        if (fireAction.triggered)
+        {
+            Debug.Log("Fire!");
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
+
     }
 }
