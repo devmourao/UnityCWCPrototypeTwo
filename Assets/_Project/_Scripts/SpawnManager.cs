@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (spawnAction.triggered)
         {
-           SpawnRandomAnimal();
+            SpawnRandomAnimal();
         }
     }
 
